@@ -1,0 +1,43 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+
+<style>
+    button{
+        background-color: #2591ee;
+        color: white;
+        padding: 10px 30px;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover{
+        background-color: #0069d9;
+    }
+</style>
+  <h1>{{ title }}</h1>
+
+  <br />
+
+  <h2>Flight Details</h2>
+
+  <ul>
+    <li>Airline: {{ doc.airplane }}</li>
+    <li>
+      {{ doc.source_airport }} &rarr; {{ doc.destination_airport }}
+    </li>
+    <li>{{ doc.date_of_departure }} / {{ doc.time_of_departure }}</li>
+    <li>Duration: {{ frappe.utils.format_duration(doc.duration) }}</li>
+  </ul>
+
+  <br />
+
+  <p>
+    
+    <a href="/book-flight-ticket/new?flight={{doc.name}}">
+      <button type="button">Book Flight</button>
+    </a>
+
+  </p>
+{% endblock %}

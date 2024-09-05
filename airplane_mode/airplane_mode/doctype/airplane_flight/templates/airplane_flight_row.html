@@ -1,0 +1,22 @@
+<style>
+	.btn:hover {
+		background-color: #0069d9;
+	}
+</style>
+
+<div class="card mb-3 border shadow">
+  <div class="card-body">
+    <h5 class="card-title">{{doc.airplane}}</h5>
+    <p class="card-text">
+      {{doc.source_airport_code}}&nbsp; <span>&#8594;</span>&nbsp;
+      {{doc.destination_airport_code}}
+    </p>
+    <p class="card-text text-muted">
+      {{doc.date_of_departure}} / {{doc.time_of_departure}} /
+      {{frappe.utils.format_duration(doc.duration)}}
+    </p>
+    <!-- Link to view flight -->
+    <a href="{{doc.route}}" class="btn btn-primary">View Flight</a>
+  </div>
+</div>
+
